@@ -160,14 +160,18 @@ function ratingFunction(int,col){
 	for(i=0;i<=index;i++){
 		var thisFeature = selected[i];
 		//takes the value of the feature that is in the array in the i position.
-		map.data.overrideStyle(thisFeature ,{
-			strokeWeight: 4, 
-			strokeColor: col,
-		});
+// 		map.data.overrideStyle(thisFeature ,{
+// 			strokeWeight: 4, 
+// 			strokeColor: col
+// 		});
 		map.data.setStyle(function(currentFeature){
 			//looks to see if the currentFeature function is the same with the selected features
 			if(currentFeature === thisFeature){
 				console.log("it recognizes that this is a selected feature");
+			}
+			return{
+				strokeWeight: 4, 
+				strokeColor: col
 			}
 		});
 // 		currentFeature.feature.setProperty("Rating", int);
