@@ -168,11 +168,11 @@ function ratingFunction(int,col){
 			//looks to see if the currentFeature function is the same with the selected features
 			if(currentFeature === thisFeature){
 				console.log("it recognizes that this is a selected feature");
-			}
-			return({
-				strokeWeight: 4, 
-				strokeColor: col
-			});
+				return({
+					strokeWeight: 4, 
+					strokeColor: col
+				});
+			}else{console.log("it didnt find the feature");}		
 		});
 // 		currentFeature.feature.setProperty("Rating", int);
 // 		map.data.setStyle(function(currentFeature){
