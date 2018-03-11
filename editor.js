@@ -1,4 +1,4 @@
-// The Google Map. 
+// The Google Map.
 var map;
 
 var geoJsonOutput;
@@ -167,6 +167,7 @@ function ratingFunction(int,col){
 			strokeColor: col,
 		});
 		map.data.setStyle(function(currentFeature){
+			//looks to see if the currentFeature function is the same with the selected features
 			if(currentFeature === thisFeature){
 				console.log("it recognizes that this is a selected feature");
 			}
