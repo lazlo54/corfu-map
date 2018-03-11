@@ -160,7 +160,7 @@ function ratingFunction(int,col){
 	this.int = int;
 	this.col = col;
 	for(i=0;i<=index;i++){
-		var currentFeature = selected[i];
+// 		var currentFeature = selected[i];
 // 		map.data.overrideStyle(currentFeature ,{
 // 			strokeWeight: 1, 
 // 			strokeColor: col 
@@ -170,6 +170,7 @@ function ratingFunction(int,col){
 // 		currentFeature.setProperty("Color", col);
 // 		currentFeature.setProperty("Rating", int);
 		map.data.setStyle(function(currentFeature){
+			currentFeature = selected[i];
 			currentFeature.feature.setProperty("Color", col);
 			currentFeature.feature.setProperty("Rating", int);
 		});
