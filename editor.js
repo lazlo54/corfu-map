@@ -161,14 +161,11 @@ function ratingFunction(int,col){
 	this.col = col;
 	for(i=0;i<=index;i++){
 // 		var currentFeature = selected[i];
-// 		map.data.overrideStyle(currentFeature ,{
-// 			strokeWeight: 1, 
-// 			strokeColor: col 
-// 		});
-		
 		//takes the value of the feature that is in the array in the i position.
-// 		currentFeature.setProperty("Color", col);
-// 		currentFeature.setProperty("Rating", int);
+		map.data.overrideStyle(selected[i] ,{
+			strokeWeight: 4, 
+			strokeColor: col 
+		});
 		map.data.setStyle(function(currentFeature){
 			currentFeature = selected[i];
 			currentFeature.setProperty("Color", col);
@@ -176,8 +173,7 @@ function ratingFunction(int,col){
 		});
 		//clears the position i in the selected array.
 		selected[i]=0;
-// 		console.log("rating: "+currentFeature.feature.getProperty("Rating"));
-// 		console.log("\n value: "+currentFeature.value);
+		console.log("rating: "+currentFeature.getProperty("Rating"));
 	}
 	index=0;
 }
