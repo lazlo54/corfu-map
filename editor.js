@@ -165,8 +165,8 @@ function ratingFunction(int,col){
 		map.data.overrideStyle(currentFeature ,{
 			strokeWeight: 4, 
 			strokeColor: col,
-			feature.setProperty("Rating", int)
 		});
+		currentFeature.feature.setProperty("Rating", int);
 // 		map.data.setStyle(function(currentFeature){
 			
 // 			currentFeature.setProperty("Color", col);
