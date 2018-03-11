@@ -160,17 +160,18 @@ function ratingFunction(int,col){
 	this.int = int;
 	this.col = col;
 	for(i=0;i<=index;i++){
-// 		var currentFeature = selected[i];
+		var currentFeature = selected[i];
 		//takes the value of the feature that is in the array in the i position.
-		map.data.overrideStyle(selected[i] ,{
+		map.data.overrideStyle(currentFeature ,{
 			strokeWeight: 4, 
-			strokeColor: col 
+			strokeColor: col,
+			feature.setProperty("Rating", int)
 		});
-		map.data.setStyle(function(currentFeature){
-			currentFeature = selected[i];
-			currentFeature.setProperty("Color", col);
-			currentFeature.setProperty("Rating", int);
-		});
+// 		map.data.setStyle(function(currentFeature){
+			
+// 			currentFeature.setProperty("Color", col);
+// 			currentFeature.setProperty("Rating", int);
+// 		});
 		//clears the position i in the selected array.
 		selected[i]=0;
 		console.log("rating: "+currentFeature.getProperty("Rating"));
