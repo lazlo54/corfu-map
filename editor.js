@@ -108,7 +108,7 @@ function init() {
   bindDataLayerListeners(map.data);
   
   //load the json file	
-  map.data.loadGeoJson("data/geojson.json");	
+  map.data.loadGeoJson("data/geojson.geojson");	
 	
   // Retrieve HTML elements.
   dataContainer = document.getElementById('data-container');
