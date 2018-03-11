@@ -171,8 +171,8 @@ function ratingFunction(int,col){
 // 		currentFeature.setProperty("Rating", int);
 		map.data.setStyle(function(currentFeature){
 			currentFeature = selected[i];
-			currentFeature.feature.setProperty("Color", col);
-			currentFeature.feature.setProperty("Rating", int);
+			currentFeature.setProperty("Color", col);
+			currentFeature.setProperty("Rating", int);
 		});
 		//clears the position i in the selected array.
 		selected[i]=0;
