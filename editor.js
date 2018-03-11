@@ -62,12 +62,10 @@ function init() {
 	//sets the boolean to false if the current one wasnt found in the selected array.
  	for(i=0;i<=index;i++){
 		if(feat === selected[i]){			  
-			console.log("isSelected = true");
 			isSelected = true;
 			//if it finds that it was already selected it breaks.
 			break;
 		}else{
-			console.log("isSelected = false");
 			isSelected = false;
 		}
 	}
@@ -87,15 +85,15 @@ function init() {
 		var n=0;
 		//loops as many times as there is points in the array
 		for(n=0;n<=index;n++){
-			console.log("before: \n n: "+n+"\n selected: "+selected[n]+"\n index: "+index);
+// 			console.log("before: \n n: "+n+"\n selected: "+selected[n]+"\n index: "+index);
 			//a statement that finds in the selected array the one that is similar to the currently selected
 			if(feat === selected[n]){
 				//when it finds it ,it sets the selected array in the point its right now to zero
-				console.log("it entered the if statement");
+// 				console.log("it entered the if statement");
 				selected[n] = 0;	
 				//decreses the size of the array
 				index--;
-				console.log("after: \n n: "+n+"\n selected: "+selected[n]+"\n index: "+index);			 
+// 				console.log("after: \n n: "+n+"\n selected: "+selected[n]+"\n index: "+index);			 
 				//resets the visualisation of the selection.
 				map.data.revertStyle(feat);
 				//breaks out of the
