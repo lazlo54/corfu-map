@@ -174,7 +174,7 @@ function ratingFunction(int,col){
 // 		});
 		//clears the position i in the selected array.
 		selected[i]=0;
-// 		console.log("rating: "+currentFeature.getProperty("Rating"));
+		console.log("rating: "+currentFeature.featurte.getProperty("Rating"));
 	}
 	index=0;
 }
