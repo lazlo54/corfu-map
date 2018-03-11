@@ -167,7 +167,7 @@ function ratingFunction(int,col){
 			strokeColor: col,
 		});
 		map.data.setStyle(function(currentFeature){
-			if(currentFeaturte == thisFeature){
+			if(currentFeature === thisFeature){
 				console.log("it recognizes that this is a selected feature");
 			}
 		});
