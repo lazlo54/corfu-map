@@ -172,7 +172,7 @@ function Rating1(){
 	}
 }
 function Rating2(){
-	for (i=0;i<=index;i++) {
+	for (i=0;i<=selected.length;i++) {
 		if (index == 0) {
 			bootbox.alert({
     			message: "Nothing is selected!",
@@ -184,11 +184,10 @@ function Rating2(){
 		var currentFeature = selected[i];		
 		ratingFunction(2,'yellow',currentFeature);
 		selected[i]=0;
-		index--;
 	}
 }
 function Rating3(){
-	for(i=0;i<=index;i++){
+	for(i=0;i<=selected.length;i++){
 		if (index == 0) {
 			bootbox.alert({
     			message: "Nothing is selected!",
@@ -200,11 +199,10 @@ function Rating3(){
 		var currentFeature = selected[i];
 		ratingFunction(3,'white',currentFeature);
 		selected[i]=0;
-		index--;
 	}
 }
 function Rating4(){
-	for (i=0;i<=index;i++) {	
+	for (i=0;i<=selected.length;i++) {	
 		if (index == 0) {
 			bootbox.alert({
     			message: "Nothing is selected!",
@@ -216,11 +214,10 @@ function Rating4(){
 		var currentFeature=selected[i];	
 		ratingFunction(4,'blue',currentFeature);
 		selected[i]=0;
-		index--;
 	}
 }
 function Rating5(){
-	for (i=0;i<=index;i++) {
+	for (i=0;i<=selected.length;i++) {
 		if (index == 0) {
 			bootbox.alert({
     			message: "Nothing is selected!",
@@ -232,7 +229,6 @@ function Rating5(){
 		var currentFeature=selected[i];
 		ratingFunction(5,'green',currentFeature);
 		selected[i]=0;
-		index--;
 	}
 }
 
