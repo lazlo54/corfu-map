@@ -57,24 +57,22 @@ function init() {
 	
   //when the user clicks on a feature
   map.data.addListener("click",function(clicking){	
-	feat= clicking.feature;
+	feat= clicking.feature; 	
+	
 	//sets the boolean to true if the current selected was already selected.
 	//sets the boolean to false if the current one wasnt found in the selected array.
  	for(i=0;i<=index;i++){
 		if(feat === selected[i]){			  
-			console.log("isSelected = true");
 			isSelected = true;
 			//if it finds that it was already selected it breaks.
 			break;
 		}else{
-			console.log("isSelected = false");
 			isSelected = false;
 		}
 	}
 	//if the boolean is false then it procceds to select the feature and adds in the array.
 	//if not then it resets the style of the selected object(de-selects it).
 	if(isSelected == false){
-		console.log("it wasnt selected");
 		//visualisation of the selection.
 		map.data.overrideStyle(feat , {strokeWeight: 8});
 		//puts the currently selected feature in an array.
@@ -82,20 +80,16 @@ function init() {
 		//increases the size of the array.
 		index++;
 	}else{
-		console.log("it was selected already");
 		//its not selected anymore so we delete it from the array. 
 		var n=0;
 		//loops as many times as there is points in the array
 		for(n=0;n<=index;n++){
-			console.log("before: \n n: "+n+"\n selected: "+selected[n]+"\n index: "+index);
 			//a statement that finds in the selected array the one that is similar to the currently selected
 			if(feat === selected[n]){
 				//when it finds it ,it sets the selected array in the point its right now to zero
-				console.log("it entered the if statement");
 				selected[n] = 0;	
 				//decreses the size of the array
-				index--;
-				console.log("after: \n n: "+n+"\n selected: "+selected[n]+"\n index: "+index);			 
+				index--; 
 				//resets the visualisation of the selection.
 				map.data.revertStyle(feat);
 				//breaks out of the
@@ -108,7 +102,7 @@ function init() {
   bindDataLayerListeners(map.data);
   
   //load the json file	
-  map.data.loadGeoJson("data/geojson.json");	
+  map.data.loadGeoJson("data/2016148.geojson");	
 	
   // Retrieve HTML elements.
   dataContainer = document.getElementById('data-container');
@@ -151,57 +145,116 @@ function showButton() {
 
 google.maps.event.addDomListener(window, 'load', init);
 
-//rating 
-//loops to find all the selected features that we gonna rate.
-//visualisies the rating by coloring the all the selected features.
-//sets the value of the array in the i position so the selected array will be empty after the rating.
-//sets the index to 0 to reset the size of the array.
-function ratingFunction(int,col){
-	this.int = int;
-	this.col = col;
-	for(i=0;i<=index;i++){
-		var currentFeature = selected[i];
-// 		map.data.overrideStyle(currentFeature ,{
-// 			strokeWeight: 1, 
-// 			strokeColor: col 
-// 		});
-		
-		//takes the value of the feature that is in the array in the i position.
-// 		currentFeature.setProperty("Color", col);
-// 		currentFeature.setProperty("Rating", int);
-		map.data.setStyle(function(currentFeature){
-			currentFeature.feature.setProperty("Color", col);
-			currentFeature.feature.setProperty("Rating", int);
-		});
-		//clears the position i in the selected array.
-		selected[i]=0;
-// 		console.log("rating: "+currentFeature.feature.getProperty("Rating"));
-// 		console.log("\n value: "+currentFeature.value);
-	}
-	index=0;
+//rating function is changing the properties of the feature
+function ratingFunction(rating,col,feature) {
+	feature.setProperty("Rating",rating);
+	feature.setProperty("Color",col);
+	map.data.overrideStyle(feature,{strokeWeight:4});
 }
+
+//in each rating function a for loop is constructed so all the features 
+//that have been selected by the user are getting their properties changed
 function Rating1(){
-	ratingFunction(1,'red');
+	for (i=0;i<=index;i++) {
+		//if statement to see if the array is empty
+		if (index == 0) {
+			bootbox.alert({
+    			message: "Nothing is selected!",
+    			size: 'small',
+    			backdrop: true
+			});
+			break;
+		}
+		var currentFeature = selected[i];		
+		ratingFunction(1,'red',currentFeature);
+		//removes the feature from the selected array
+		selected[i]=0;
+		//resizes the index which is the size of the array
+		index--;
+	}
 }
 function Rating2(){
-	ratingFunction(2,'yellow');
+	for (i=0;i<=index;i++) {
+		if (index == 0) {
+			bootbox.alert({
+    			message: "Nothing is selected!",
+    			size: 'small',
+    			backdrop: true
+			});
+			break;
+		}
+		var currentFeature = selected[i];		
+		ratingFunction(2,'yellow',currentFeature);
+		selected[i]=0;
+		index--;
+	}
 }
 function Rating3(){
-	ratingFunction(3,'white');
+	for(i=0;i<=index;i++){
+		if (index == 0) {
+			bootbox.alert({
+    			message: "Nothing is selected!",
+    			size: 'small',
+    			backdrop: true
+			});
+			break;
+		}
+		var currentFeature = selected[i];
+		ratingFunction(3,'white',currentFeature);
+		selected[i]=0;
+		index--;
+	}
 }
 function Rating4(){
-	ratingFunction(4,'blue');
+	for (i=0;i<=index;i++) {	
+		if (index == 0) {
+			bootbox.alert({
+    			message: "Nothing is selected!",
+    			size: 'small',
+    			backdrop: true
+			});
+			break;
+		}
+		var currentFeature=selected[i];	
+		ratingFunction(4,'blue',currentFeature);
+		selected[i]=0;
+		index--;
+	}
 }
 function Rating5(){
-	ratingFunction(5,'green');
+	for (i=0;i<=index;i++) {
+		if (index == 0) {
+			bootbox.alert({
+    			message: "Nothing is selected!",
+    			size: 'small',
+    			backdrop: true
+			});
+			break;
+		}
+		var currentFeature=selected[i];
+		ratingFunction(5,'green',currentFeature);
+		selected[i]=0;
+		index--;
+	}
 }
 
 //clear function
 //selectes all the features
 //removes them
-function Clear(){	
-	map.data.forEach(function(feature){
-		map.data.remove(feature);
+function Clear(){
+	bootbox.confirm({
+        message: "Are you sure?",
+        buttons: {
+            confirm: {label: 'Yes'},
+            cancel: {label: 'No'}
+        },
+        callback: function (result) {
+            if (result == true) {
+                map.data.forEach(function(feature) {
+                    map.data.remove(feature);
+                });
+            }
+        }
 	});
 }
 
