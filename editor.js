@@ -155,7 +155,7 @@ function ratingFunction(rating,col,feature) {
 //in each rating function a for loop is constructed so all the features 
 //that have been selected by the user are getting their properties changed
 function Rating1(){
-	for (i=0;i<=index;i++) {
+	for (i=0;i<=selected.length;i++) {
 		//if statement to see if the array is empty
 		if (index == 0) {
 			bootbox.alert({
@@ -169,8 +169,6 @@ function Rating1(){
 		ratingFunction(1,'red',currentFeature);
 		//removes the feature from the selected array
 		selected[i]=0;
-		//resizes the index which is the size of the array
-		index--;
 	}
 }
 function Rating2(){
