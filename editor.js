@@ -60,7 +60,7 @@ function init() {
 	feat= clicking.feature; 	
 	//sets the boolean to true if the current selected was already selected.
 	//sets the boolean to false if the current one wasnt found in the selected array.
- 	for(i=0;i<=index;i++){
+ 	for(i=0;i<=selected.length;i++){
 		if(feat === selected[i]){			  
 			isSelected = true;
 			//if it finds that it was already selected it breaks.
@@ -85,7 +85,7 @@ function init() {
 			if(feat === selected[n]){
 				//when it finds it ,it sets the selected array in the point its right now to zero
 				selected[n] = 0;	
-				index--;
+				index=n-1;
 				//decreses the size of the array
 				//resets the visualisation of the selection.
 				map.data.revertStyle(feat);
@@ -166,7 +166,7 @@ function Rating1(){
 		ratingFunction(1,'red',currentFeature);
 		//removes the feature from the selected array
 		selected[i]=0;
-		index--;
+		index=i-1;
 	}
 }
 function Rating2(){
@@ -182,7 +182,7 @@ function Rating2(){
 		var currentFeature = selected[i];		
 		ratingFunction(2,'yellow',currentFeature);
 		selected[i]=0;
-		index--;
+		index=i-1;
 	}
 }
 function Rating3(){
@@ -198,7 +198,7 @@ function Rating3(){
 		var currentFeature = selected[i];
 		ratingFunction(3,'white',currentFeature);
 		selected[i]=0;
-		index--;
+		index=i-1;
 	}
 }
 function Rating4(){
@@ -214,7 +214,7 @@ function Rating4(){
 		var currentFeature=selected[i];	
 		ratingFunction(4,'blue',currentFeature);
 		selected[i]=0;
-		index--;
+		index=i-1;
 	}
 }
 function Rating5(){
@@ -230,7 +230,7 @@ function Rating5(){
 		var currentFeature=selected[i];
 		ratingFunction(5,'green',currentFeature);
 		selected[i]=0;
-		index--;
+		index=i-1;
 	}
 }
 
@@ -260,7 +260,7 @@ function Clear(){
 function DeleteSel(){
 	for(i=0;i<=selected.length;i++){
 		map.data.remove(selected[i]);
-		index--;
+		index=i-1;
 	}
 	index= 0;
 }
