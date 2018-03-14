@@ -37,8 +37,8 @@
         ]
       },
       "properties": {
-        "Rating": "unknown",
-        "Color": "unknown"
+        "Rating": 2,
+        "Color": "yellow"
       }
     },
     {
@@ -77,8 +77,8 @@
         ]
       },
       "properties": {
-        "Rating": "unknown",
-        "Color": "unknown"
+        "Rating": 4,
+        "Color": "blue"
       }
     },
     {
@@ -97,8 +97,8 @@
         ]
       },
       "properties": {
-        "Rating": "unknown",
-        "Color": "unknown"
+        "Rating": 4,
+        "Color": "blue"
       }
     },
     {
@@ -117,8 +117,8 @@
         ]
       },
       "properties": {
-        "Rating": "unknown",
-        "Color": "unknown"
+        "Rating": 4,
+        "Color": "blue"
       }
     },
     {
@@ -221,8 +221,8 @@
         ]
       },
       "properties": {
-        "Rating": "unknown",
-        "Color": "unknown"
+        "Rating": 4,
+        "Color": "blue"
       }
     },
     {
@@ -321,8 +321,8 @@
         ]
       },
       "properties": {
-        "Rating": "unknown",
-        "Color": "unknown"
+        "Rating": 2,
+        "Color": "yellow"
       }
     },
     {
@@ -341,8 +341,8 @@
         ]
       },
       "properties": {
-        "Rating": "unknown",
-        "Color": "unknown"
+        "Rating": 1,
+        "Color": "red"
       }
     },
     {
