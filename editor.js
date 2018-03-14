@@ -14,7 +14,7 @@ var dataContainer;
 var selected = [];
 var isSelected = false;
 var feat;
-var index= 0;
+var index=0;
 
 //value of the rating of the feature
 var value = "unknown";
@@ -60,7 +60,7 @@ function init() {
 	feat= clicking.feature; 	
 	//sets the boolean to true if the current selected was already selected.
 	//sets the boolean to false if the current one wasnt found in the selected array.
- 	for(i=0;i<=selected.length;i++){
+ 	for(i=0;i<=index;i++){
 		if(feat === selected[i]){			  
 			isSelected = true;
 			//if it finds that it was already selected it breaks.
@@ -79,13 +79,14 @@ function init() {
 		//increases the size of the array.
 		index++;
 	}else{
+		var max=index;
 		//loops as many times as there is points in the array
-		for(n=0;n<=selected.length;n++){
+		for(n=0;n<=max;n++){
 			//a statement that finds in the selected array the one that is similar to the currently selected
 			if(feat === selected[n]){
 				//when it finds it ,it sets the selected array in the point its right now to zero
 				selected[n] = 0;	
-				index=n-1;
+				index--;
 				//decreses the size of the array
 				//resets the visualisation of the selection.
 				map.data.revertStyle(feat);
@@ -124,16 +125,13 @@ function init() {
   google.maps.event.addDomListener(dataContainer, 'dragend', hideDataBox);
   google.maps.event.addDomListener(dataContainer, 'dragleave', hideDataBox);
 	
-  google.maps.event.addDomListener(geoJsonOutput,'output',refreshDataFromGeoJson);
-  google.maps.event.addDomListener(geoJsonOutput,'output',refreshDownloadLinkFromGeoJson);
-	
   google.maps.event.addDomListener(window, 'resize', resize);
 }
 
 //displays the data of the map(json file)
 function showButton() {
-        var my_disply = document.getElementById('geojson-output').style.display;
-        if(my_disply === "none"){
+    var my_disply = document.getElementById('geojson-output').style.display;
+    if(my_disply === "none"){
         	document.getElementById('geojson-output').style.display = "block";
 	}else{
         	document.getElementById('geojson-output').style.display = "none";
@@ -149,45 +147,34 @@ function ratingFunction(rating,col,feature) {
 	map.data.overrideStyle(feature,{strokeWeight:4});
 }
 
-//in each rating function a for loop is constructed so all the features 
-//that have been selected by the user are getting their properties changed
-function Rating1(){
-	for (i=0;i<=selected.length;i++) {
+function Rating(rate){
+	//sets the max of the interations that will be done
+	var max=index;
+	var col;
+	var rate=rate;
+	//a swich that changes the color relevant to the rating
+	switch(rate){
+		case 1:
+			col = 'red';
+			break;
+		case 2:
+			col = 'yellow';
+			break;
+		case 3:
+			col = 'white';
+			break;
+		case 4:
+			col = 'blue';
+			break;
+		case 5:
+			col = 'green';
+			break;	
+	}
+	//in each rating function a for loop is constructed so all the features 
+	//that have been selected by the user are getting their properties changed
+	for(i=0;i<=max-1;i++){
 		//if statement to see if the array is empty
-		if (index == 0) {
-			bootbox.alert({
-    			message: "Nothing is selected!",
-    			size: 'small',
-    			backdrop: true
-			});
-			break;
-		}
-		var currentFeature = selected[i];		
-		ratingFunction(1,'red',currentFeature);
-		//removes the feature from the selected array
-		selected[i]=0;
-		index=i-1;
-	}
-}
-function Rating2(){
-	for (i=0;i<=selected.length;i++) {
-		if (index == 0) {
-			bootbox.alert({
-    			message: "Nothing is selected!",
-    			size: 'small',
-    			backdrop: true
-			});
-			break;
-		}
-		var currentFeature = selected[i];		
-		ratingFunction(2,'yellow',currentFeature);
-		selected[i]=0;
-		index=i-1;
-	}
-}
-function Rating3(){
-	for(i=0;i<=selected.length;i++){
-		if (index == 0) {
+		if(index == 0){
 			bootbox.alert({
     			message: "Nothing is selected!",
     			size: 'small',
@@ -196,41 +183,9 @@ function Rating3(){
 			break;
 		}
 		var currentFeature = selected[i];
-		ratingFunction(3,'white',currentFeature);
+		ratingFunction(rate,col,currentFeature);
 		selected[i]=0;
-		index=i-1;
-	}
-}
-function Rating4(){
-	for (i=0;i<=selected.length;i++) {	
-		if (index == 0) {
-			bootbox.alert({
-    			message: "Nothing is selected!",
-    			size: 'small',
-    			backdrop: true
-			});
-			break;
-		}
-		var currentFeature=selected[i];	
-		ratingFunction(4,'blue',currentFeature);
-		selected[i]=0;
-		index=i-1;
-	}
-}
-function Rating5(){
-	for (i=0;i<=selected.length;i++) {
-		if (index == 0) {
-			bootbox.alert({
-    			message: "Nothing is selected!",
-    			size: 'small',
-    			backdrop: true
-			});
-			break;
-		}
-		var currentFeature=selected[i];
-		ratingFunction(5,'green',currentFeature);
-		selected[i]=0;
-		index=i-1;
+		index--;
 	}
 }
 
@@ -248,6 +203,8 @@ function Clear(){
             if (result == true) {
                 map.data.forEach(function(feature) {
                     map.data.remove(feature);
+                    selected[1]=0;
+                    index=0;
                 });
             }
         }
@@ -258,11 +215,12 @@ function Clear(){
 //loops and deletes all the points in the array.
 //resets the size of the array.
 function DeleteSel(){
-	for(i=0;i<=selected.length;i++){
+	var max=index;
+	for(i=0;i<=max;i++){
+		console.log("index: "+index);
 		map.data.remove(selected[i]);
-		index=i-1;
+		index--;
 	}
-	index= 0;
 }
 
 function showDataBox(e) {
@@ -295,32 +253,6 @@ function bindDataLayerListeners(dataLayer) {
   dataLayer.addListener('removefeature', refreshGeoJsonFromData);
   dataLayer.addListener('setgeometry', refreshGeoJsonFromData);
   dataLayer.addListener('setproperty', refreshGeoJsonFromData);
-}
-
-function refreshDataFromGeoJson(){
-	var newData = new google.maps.Data({
-  		map: map,
-  		style: map.data.getStyle(),
-  		controls: ['Point', 'LineString', 'Polygon']
-  	});
-	
-  	try {
-  		var userObject = JSON.parse(geoJsonInput.value);
-  		var newFeatures = newData.addGeoJson(userObject);
-  	} catch (error) {
-  		newData.setMap(null);
-  		if (geoJsonInput.value !== "") {
-  			setGeoJsonValidity(false);
-  		} else {
-  			setGeoJsonValidity(true);
-  		}
-  		return;
-  	}
-  	// No error means GeoJSON was valid!
-  	map.data.setMap(null);
-  	map.data = newData;
-  	bindDataLayerListeners(newData);
-	setGeoJsonValidity(true);
 }
 
 function setGeoJsonValidity(newVal) {
