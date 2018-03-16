@@ -174,7 +174,7 @@ body {
 }
 
 #help-box{
-  position: absolute;
+  position: relative;
   top:500px;
   background-color: transparent;
 }
