@@ -24,3 +24,5 @@
    yes- Αξιολογήστε τα μονοπάτια που γνωρίζετε/θυμάστε κατά πόσο είναι κατάλληλα/ευχάριστα για πεζούς και 
         ανεβάστε τα καινούρια αρχεία στο κεντρικό αποθετήριο στον φάκελο data με όνομα 
         AM_review.geojson (π.χ. 2011999_review.geojson).
+
+    no- make a small window that says the controls to the user!
