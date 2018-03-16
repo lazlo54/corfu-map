@@ -174,7 +174,7 @@ body {
 }
 
 #help{
-  position:absolute;
+  position:relative;
   float:right;
   backgroung: transparent;
 }
