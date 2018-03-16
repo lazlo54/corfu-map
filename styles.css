@@ -175,5 +175,6 @@ body {
 
 #help-box{
   position: absolute;
+  height:500;
   background-color: transparent;
 }
