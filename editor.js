@@ -302,19 +302,15 @@ function resize() {
 
 function HelpButton(){
 	bootbox.alert({
-    		message: "-You can choose multiple lines by clicking on them (the selected features are hightlighted)\n"
-			"and if you want to de-select them you click on the selected one again. \n" +
-			
-			"-You can delete everything by clicking on the 'Clear the Map' button. \n"+
-			
-			"-You can delete the selected features by clicking on the 'Delete the selected'. \n"+
-			
-			"-You can rate all the selected features by clicking on each button depented to \n"+
-			"the rate that you want(The worst rating is red and the best is green and the \n"+
-			"colors are red,yellow,white,blue,green)."+
-			
-			"-After you finish the edition of the map you can download the geojson file \n"+
-			"by clicking on the 'Download Geojson'. \n",
+    		message:"-You can choose multiple lines by clicking on them (the selected features are hightlighted)\n",
+		message:"and if you want to de-select them you click on the selected one again. \n\n" ,	
+		message:"-You can delete everything by clicking on the 'Clear the Map' button. \n\n",	
+		message:"-You can delete the selected features by clicking on the 'Delete the selected'. \n\n",	
+		message:"-You can rate all the selected features by clicking on each button depented to \n",
+		message:"the rate that you want(The worst rating is red and the best is green and the \n",
+		message:"colors are red,yellow,white,blue,green). \n\n",
+		message:"-After you finish the edition of the map you can download the geojson file \n",
+		message:"by clicking on the 'Download Geojson'. \n" ,
     		backdrop: true
 	});
 			
