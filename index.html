@@ -35,16 +35,32 @@
 		</div>
 		
 		<div id="rating-controls">
-			<button onclick="Rating(1);" class="redR"> Πολύ κακό </button>
-			<button onclick="Rating(2);" class="yellowR"> Κακό </button>
-			<button onclick="Rating(3);" class="whiteR"> Μέτριο </button>
-			<button onclick="Rating(4);" class="blueR"> Καλό </button>
-			<button onclick="Rating(5);" class="greenR"> Πολύ καλό </button>			
+			<button onclick="Rating(1);" class="redR"> Very Bad </button>
+			<button onclick="Rating(2);" class="yellowR"> Bad </button>
+			<button onclick="Rating(3);" class="whiteR"> Normal </button>
+			<button onclick="Rating(4);" class="blueR"> Good </button>
+			<button onclick="Rating(5);" class="greenR"> Very Good </button>			
 		</div>	
 		
 		<div id="output-layout">
 			<textarea id="geojson-output"
 			  placeholder="You can see the changes of the GeoJson file here."></textarea>
+		</div>
+		
+		<div id="help-box">
+			-You can choose multiple lines by clicking on them (the selected features are hightlighted) 
+			and if you want to de-select them you click on the selected one again. 
+			
+			-You can delete everything by clicking on the "Clear the Map" button.
+			
+			-You can delete the selected features by clicking on the "Delete the selected".
+			
+			-You can rate all the selected features by clicking on each button depented to 
+			the rate that you want(The worst rating is red and the best is green and the 
+			colors are red,yellow,white,blue,green).
+			
+			-After you finish the edition of the map you can download the geojson file 
+			by clicking on the "Download Geojson".
 		</div>
 	</div>
 	
