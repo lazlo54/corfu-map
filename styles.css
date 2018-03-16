@@ -175,7 +175,7 @@ body {
 
 #help{
   position:absolute;
-  top:0px;
-  float:right;
+  top:3px;
+  left:50px;
   backgroung: transparent;
 }
