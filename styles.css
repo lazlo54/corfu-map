@@ -172,3 +172,7 @@ body {
   border-right: 3px solid #1a1a1a;
   background-color: transparent;
 }
+
+#help-box{
+  background-color: transparent;
+}
