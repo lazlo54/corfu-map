@@ -174,7 +174,7 @@ function Rating(rate){
 	//that have been selected by the user are getting their properties changed
 	for(i=0;i<=max-1;i++){
 		//if statement to see if the array is empty
-		if(index == 0){
+		if(max == 0){
 			bootbox.alert({
     			message: "Nothing is selected!",
     			size: 'small',
@@ -298,4 +298,25 @@ function resize() {
 	var geoJsonOutputRect = geoJsonOutput.getBoundingClientRect();
 	var dataBoxRect = dataBox.getBoundingClientRect();
 	geoJsonOutput.style.height = dataBoxRect.bottom - geoJsonOutputRect.top - 8 + "px";
+}
+
+function HelpButton(){
+	bootbox.alert({
+    		message: "-You can choose multiple lines by clicking on them (the selected features are hightlighted)"+
+			"and if you want to de-select them you click on the selected one again." +
+			
+			"-You can delete everything by clicking on the 'Clear the Map' button."+
+			
+			"-You can delete the selected features by clicking on the 'Delete the selected'. "+
+			
+			"-You can rate all the selected features by clicking on each button depented to "+
+			"the rate that you want(The worst rating is red and the best is green and the "+
+			"colors are red,yellow,white,blue,green)."+
+			
+			"-After you finish the edition of the map you can download the geojson file "+
+			"by clicking on the 'Download Geojson'. ",
+    		size: 'small',
+    		backdrop: true
+	});
+			
 }
