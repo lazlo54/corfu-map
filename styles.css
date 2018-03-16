@@ -172,10 +172,3 @@ body {
   border-right: 3px solid #1a1a1a;
   background-color: transparent;
 }
-
-#helpButton{
-  position:absolute;
-  top:1.5px;
-  left:350px;
-  backgroung: transparent;
-}
