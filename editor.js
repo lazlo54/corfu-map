@@ -315,7 +315,6 @@ function HelpButton(){
 			
 			"-After you finish the edition of the map you can download the geojson file "+
 			"by clicking on the 'Download Geojson'. ",
-    		size: 'small',
     		backdrop: true
 	});
 			
